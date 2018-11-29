@@ -26,8 +26,8 @@ knitr::opts_chunk$set(
   fig.width = 9,
   out.width = "6in",
   echo = TRUE,
-  autodep = TRUE,
-  cache = TRUE,
+  autodep = TRUE, #figures out if chunks rely on each other
+  cache = TRUE, #tell it to cache the chunks; handy if many files that prodce different things
   # cache.comments = FALSE,
   dev = if (knitr:::is_latex_output()) "pdf" else "png",
   dpi = 200,
@@ -47,7 +47,7 @@ First generate the data in R:
 
 ```{r generate}
 set.seed(42)
-n <- 50 # sample size
+n <- 30 # sample size
 x <- 1:n
 y <- 10 * x + rnorm(n, 0, 10)
 # y = 10*x^1.5 + rnorm(n, 0, 10)
